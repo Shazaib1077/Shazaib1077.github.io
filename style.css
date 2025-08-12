@@ -1,0 +1,166 @@
+/* Base styles */
+body {
+    font-family: 'Inter', sans-serif; /* Default sans-serif font for headings */
+    background-color: #020617; /* slate-950 */
+    color: #94a3b8; /* slate-400 */
+}
+
+/* Gradient for the name */
+.name-gradient {
+    background: -webkit-linear-gradient(315deg, #5eead4, #818cf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Apply code-style font to writing text */
+main p, footer p, .tech-stack-item, .code-snippet, .job-date {
+    font-family: 'Roboto Mono', monospace;
+}
+
+/* Animated background canvas */
+#bg-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Behind content */
+}
+
+/* Ensure content is above the background */
+.content-wrapper {
+    position: relative;
+    z-index: 2;
+}
+
+/* Fade-in animation for sections */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Navigation link styles */
+.nav-link .nav-text {
+    transition: color .3s ease;
+}
+.nav-link .nav-indicator {
+    transition: width .3s ease, background .3s ease;
+}
+.nav-link:hover .nav-text {
+    background: -webkit-linear-gradient(315deg, #5eead4, #818cf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.nav-link:hover .nav-indicator {
+    width: 4rem; /* w-16 */
+    background: linear-gradient(to right, #5eead4, #818cf8);
+}
+.nav-link.active .nav-text {
+    color: #e2e8f0; /* slate-200 */
+}
+.nav-link.active .nav-indicator {
+    width: 4rem; /* w-16 */
+    background: #e2e8f0;
+}
+.nav-link.active:hover .nav-text {
+    background: -webkit-linear-gradient(315deg, #5eead4, #818cf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+/* Project/Experience card hover effect */
+.card-group:hover {
+    background-color: rgba(30, 41, 59, 0.5); /* slate-800 with opacity */
+    box-shadow: inset 0 1px 0 0 rgba(148, 163, 184, 0.1);
+}
+
+/* Code snippet syntax highlighting */
+.code-const { color: #818cf8; } /* indigo-400 */
+.code-variable { color: #5eead4; } /* teal-300 */
+.code-property { color: #93c5fd; } /* blue-300 */
+.code-string { color: #f87171; } /* red-400 */
+.code-operator { color: #cbd5e1; } /* slate-300 */
+.code-comment { color: #64748b; } /* slate-500 */
+
+/* Magnetic field button styles */
+.magnetic-field-button {
+    position: relative;
+    display: inline-block;
+}
+.magnetic-field-button a {
+    font-family: 'Roboto Mono', monospace;
+}
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, #818cf8, #5eead4);
+    opacity: 0;
+    animation: pulsate 1.5s infinite;
+}
+
+@keyframes pulsate {
+    0%, 100% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(0.8); opacity: 1; }
+}
+
+/* 3D Skill Icon Styles */
+.skills-list {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 60px;
+    justify-content: center;
+}
+.skills-list li {
+    position: relative;
+    list-style: none;
+    width: 60px;
+    height: 60px;
+    transform: rotate(-30deg) skew(25deg);
+}
+.skills-list li span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #1e293b; /* slate-800 */
+    border: 1px solid #334155; /* slate-700 */
+    transition: 0.5s;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    color: #94a3b8; /* slate-400 */
+    font-size: 30px !important;
+}
+.skills-list li:hover span {
+    color: #5eead4; /* teal-300 */
+}
+.skills-list li:hover span:nth-child(5) {
+    transform: translate(40px, -40px);
+    opacity: 1;
+}
+.skills-list li:hover span:nth-child(4) {
+    transform: translate(30px, -30px);
+    opacity: 0.8;
+}
+.skills-list li:hover span:nth-child(3) {
+    transform: translate(20px, -20px);
+    opacity: 0.6;
+}
+.skills-list li:hover span:nth-child(2) {
+    transform: translate(10px, -10px);
+    opacity: 0.4;
+}
+.skills-list li:hover span:nth-child(1) {
+    transform: translate(0, 0);
+    opacity: 0.2;
+}
