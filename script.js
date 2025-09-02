@@ -51,6 +51,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function createParticles(container) {
     removeParticles(container); // Clear existing particles
+    // Ensure float keyframes exist only once in a same-origin stylesheet
+    if (!window.__floatKeyframesInstalled) {
+        const styleEl = document.createElement('style');
+        styleEl.id = 'particle-float-style';
+        styleEl.textContent = `
+            @keyframes float {
+                0% { transform: translate(0, 0); }
+                100% { transform: translate(var(--dx), var(--dy)); }
+            }`;
+        document.head.appendChild(styleEl);
+        window.__floatKeyframesInstalled = true;
+    }
     const particleCount = 30;
     for (let i = 0; i < particleCount; i++) {
         const particle = document.createElement('div');
@@ -61,7 +73,7 @@ function createParticles(container) {
         particle.style.width = `${size}px`;
         particle.style.height = `${size}px`;
         
-        const angle = Math.random() * 360;
+        const angle = Math.random() * 2 * Math.PI;
         const radius = (Math.random() * 40) + 40;
         const x = Math.cos(angle) * radius + (container.offsetWidth / 2);
         const y = Math.sin(angle) * radius + (container.offsetHeight / 2);
@@ -69,25 +81,18 @@ function createParticles(container) {
         particle.style.left = `${x}px`;
         particle.style.top = `${y}px`;
 
+        // Per-particle float offsets via CSS variables
+        const dx = (Math.random() * 10) - 5;
+        const dy = (Math.random() * 10) - 5;
+        particle.style.setProperty('--dx', `${dx}px`);
+        particle.style.setProperty('--dy', `${dy}px`);
+
         const floatDuration = Math.random() * 2 + 1;
         particle.style.animationDuration = `${floatDuration}s, 1.5s`;
         particle.style.animationName = `float, pulsate`;
         particle.style.animationTimingFunction = `ease-in-out`;
         particle.style.animationIterationCount = `infinite`;
         particle.style.animationDirection = `alternate`;
-    }
-
-    // Add a keyframe rule dynamically for floating effect
-    const styleSheet = document.styleSheets[0];
-    const keyframes = `
-        @keyframes float {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(${Math.random() * 10 - 5}px, ${Math.random() * 10 - 5}px); }
-        }`;
-    try {
-         styleSheet.insertRule(keyframes, styleSheet.cssRules.length);
-    } catch(e) {
-        console.warn("Could not insert keyframe rule:", e);
     }
 }
 
@@ -114,7 +119,7 @@ window.onload = function() {
     const particlesCount = 7000;
     const posArray = new Float32Array(particlesCount * 3); // x, y, z for each particle
 
-    for (let i = 0; i < particlesCount * 3; i++) {
+    for (let i = 0; i < particlesCount; i++) {
         // Spread particles in a larger sphere
         const u = Math.random();
         const v = Math.random();
