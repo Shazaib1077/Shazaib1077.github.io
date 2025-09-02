@@ -60,11 +60,12 @@ function createParticles(container) {
         const size = Math.random() * 4 + 1;
         particle.style.width = `${size}px`;
         particle.style.height = `${size}px`;
-        
-        const angle = Math.random() * 360;
+
+        // Use radians directly for trigonometric functions
+        const angleRad = Math.random() * Math.PI * 2;
         const radius = (Math.random() * 40) + 40;
-        const x = Math.cos(angle) * radius + (container.offsetWidth / 2);
-        const y = Math.sin(angle) * radius + (container.offsetHeight / 2);
+        const x = Math.cos(angleRad) * radius + (container.offsetWidth / 2);
+        const y = Math.sin(angleRad) * radius + (container.offsetHeight / 2);
         
         particle.style.left = `${x}px`;
         particle.style.top = `${y}px`;
@@ -77,17 +78,20 @@ function createParticles(container) {
         particle.style.animationDirection = `alternate`;
     }
 
-    // Add a keyframe rule dynamically for floating effect
-    const styleSheet = document.styleSheets[0];
-    const keyframes = `
-        @keyframes float {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(${Math.random() * 10 - 5}px, ${Math.random() * 10 - 5}px); }
-        }`;
-    try {
-         styleSheet.insertRule(keyframes, styleSheet.cssRules.length);
-    } catch(e) {
-        console.warn("Could not insert keyframe rule:", e);
+    // Add a keyframe rule dynamically for floating effect only once per page load
+    if (!window._floatKeyframeInserted) {
+        const styleSheet = document.styleSheets[0];
+        const keyframes = `
+            @keyframes float {
+                0% { transform: translate(0, 0); }
+                100% { transform: translate(${Math.random() * 10 - 5}px, ${Math.random() * 10 - 5}px); }
+            }`;
+        try {
+            styleSheet.insertRule(keyframes, styleSheet.cssRules.length);
+            window._floatKeyframeInserted = true;
+        } catch (e) {
+            console.warn("Could not insert keyframe rule:", e);
+        }
     }
 }
 
