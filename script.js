@@ -13,6 +13,74 @@ document.addEventListener('DOMContentLoaded', () => {
         sectionObserver.observe(section);
     });
 
+    // Secure form handling with client-side validation
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Check honeypot field (anti-spam)
+            const honeypot = contactForm.querySelector('input[name="website"]');
+            if (honeypot && honeypot.value) {
+                console.warn('Bot detected');
+                return;
+            }
+            
+            // Get form data
+            const formData = new FormData(contactForm);
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const submitText = document.getElementById('submit-text');
+            const submitLoading = document.getElementById('submit-loading');
+            
+            // Sanitize input data
+            const name = formData.get('name').trim().substring(0, 100);
+            const email = formData.get('email').trim().toLowerCase().substring(0, 254);
+            const message = formData.get('message').trim().substring(0, 1000);
+            
+            // Additional validation
+            const emailRegex = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+            const nameRegex = /^[A-Za-z\s]{2,100}$/;
+            
+            if (!nameRegex.test(name)) {
+                alert('Please enter a valid name (letters and spaces only)');
+                return;
+            }
+            
+            if (!emailRegex.test(email)) {
+                alert('Please enter a valid email address');
+                return;
+            }
+            
+            if (message.length < 10) {
+                alert('Please enter a message with at least 10 characters');
+                return;
+            }
+            
+            // Disable submit button and show loading state
+            submitBtn.disabled = true;
+            submitText.classList.add('hidden');
+            submitLoading.classList.remove('hidden');
+            
+            // Simulate form submission (replace with actual endpoint)
+            try {
+                // For demonstration - replace with actual API endpoint
+                await new Promise(resolve => setTimeout(resolve, 1500));
+                
+                // Success handling
+                alert('Thank you for your message! I will get back to you soon.');
+                contactForm.reset();
+            } catch (error) {
+                console.error('Form submission error:', error);
+                alert('Sorry, there was an error sending your message. Please try again later.');
+            } finally {
+                // Re-enable submit button
+                submitBtn.disabled = false;
+                submitText.classList.remove('hidden');
+                submitLoading.classList.add('hidden');
+            }
+        });
+    }
+
     // Active nav link highlighting on scroll
     const navLinks = document.querySelectorAll('.nav-link');
     const contentSections = document.querySelectorAll('main section');
@@ -49,12 +117,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+// Track if keyframe rules have been added
+let keyframesAdded = new Set();
+
 function createParticles(container) {
     removeParticles(container); // Clear existing particles
     const particleCount = 30;
+    
+    // Generate unique keyframe for this batch of particles
+    const keyframeName = `float-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+    
     for (let i = 0; i < particleCount; i++) {
         const particle = document.createElement('div');
         particle.classList.add('particle');
+        particle.dataset.keyframeName = keyframeName; // Store keyframe name for cleanup
         container.appendChild(particle);
 
         const size = Math.random() * 4 + 1;
@@ -70,24 +146,34 @@ function createParticles(container) {
         particle.style.top = `${y}px`;
 
         const floatDuration = Math.random() * 2 + 1;
+        
+        // Use individual transform for each particle instead of shared keyframe
+        const translateX = Math.random() * 10 - 5;
+        const translateY = Math.random() * 10 - 5;
+        particle.style.setProperty('--translate-x', `${translateX}px`);
+        particle.style.setProperty('--translate-y', `${translateY}px`);
+        
         particle.style.animationDuration = `${floatDuration}s, 1.5s`;
-        particle.style.animationName = `float, pulsate`;
+        particle.style.animationName = `particle-float, pulsate`;
         particle.style.animationTimingFunction = `ease-in-out`;
         particle.style.animationIterationCount = `infinite`;
         particle.style.animationDirection = `alternate`;
     }
-
-    // Add a keyframe rule dynamically for floating effect
-    const styleSheet = document.styleSheets[0];
-    const keyframes = `
-        @keyframes float {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(${Math.random() * 10 - 5}px, ${Math.random() * 10 - 5}px); }
-        }`;
-    try {
-         styleSheet.insertRule(keyframes, styleSheet.cssRules.length);
-    } catch(e) {
-        console.warn("Could not insert keyframe rule:", e);
+    
+    // Add keyframe rule only once if not already added
+    if (!keyframesAdded.has('particle-float')) {
+        const styleSheet = document.styleSheets[0];
+        const keyframes = `
+            @keyframes particle-float {
+                0% { transform: translate(0, 0); }
+                100% { transform: translate(var(--translate-x, 0), var(--translate-y, 0)); }
+            }`;
+        try {
+            styleSheet.insertRule(keyframes, styleSheet.cssRules.length);
+            keyframesAdded.add('particle-float');
+        } catch(e) {
+            console.warn("Could not insert keyframe rule:", e);
+        }
     }
 }
 
@@ -114,7 +200,7 @@ window.onload = function() {
     const particlesCount = 7000;
     const posArray = new Float32Array(particlesCount * 3); // x, y, z for each particle
 
-    for (let i = 0; i < particlesCount * 3; i++) {
+    for (let i = 0; i < particlesCount; i++) {
         // Spread particles in a larger sphere
         const u = Math.random();
         const v = Math.random();
