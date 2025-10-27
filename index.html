@@ -201,23 +201,28 @@
                     <h2 class="text-2xl font-bold tracking-tight text-slate-200 sm:text-3xl text-center">Get In Touch</h2>
                     <p class="mt-4 max-w-xl mx-auto text-center">My inbox is always open. Whether you have a question or just want to say hi, I’ll try my best to get back to you! Feel free to reach out about any opportunities as well.</p>
                     
-                    <form action="https://formspree.io/f/your_form_id_here" method="POST" class="mt-8 max-w-xl mx-auto">
+                    <form id="contact-form" class="mt-8 max-w-xl mx-auto">
                         <div class="grid grid-cols-1 gap-y-6">
                             <div>
                                 <label for="name" class="sr-only">Name</label>
-                                <input type="text" name="name" id="name" autocomplete="name" required class="block w-full shadow-sm py-3 px-4 placeholder-slate-500 bg-slate-800/50 border-slate-700 rounded-md focus:ring-violet-500 focus:border-violet-500" placeholder="Name">
+                                <input type="text" name="name" id="name" autocomplete="name" required maxlength="100" pattern="[A-Za-z\s]{2,100}" title="Please enter a valid name (2-100 characters, letters and spaces only)" class="block w-full shadow-sm py-3 px-4 placeholder-slate-500 bg-slate-800/50 border-slate-700 rounded-md focus:ring-violet-500 focus:border-violet-500" placeholder="Name">
                             </div>
                             <div>
                                 <label for="email" class="sr-only">Email</label>
-                                <input id="email" name="email" type="email" autocomplete="email" required class="block w-full shadow-sm py-3 px-4 placeholder-slate-500 bg-slate-800/50 border-slate-700 rounded-md focus:ring-violet-500 focus:border-violet-500" placeholder="Email">
+                                <input id="email" name="email" type="email" autocomplete="email" required maxlength="254" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Please enter a valid email address" class="block w-full shadow-sm py-3 px-4 placeholder-slate-500 bg-slate-800/50 border-slate-700 rounded-md focus:ring-violet-500 focus:border-violet-500" placeholder="Email">
                             </div>
                             <div>
                                 <label for="message" class="sr-only">Message</label>
-                                <textarea id="message" name="message" rows="4" required class="block w-full shadow-sm py-3 px-4 placeholder-slate-500 bg-slate-800/50 border-slate-700 rounded-md focus:ring-violet-500 focus:border-violet-500" placeholder="Message"></textarea>
+                                <textarea id="message" name="message" rows="4" required maxlength="1000" class="block w-full shadow-sm py-3 px-4 placeholder-slate-500 bg-slate-800/50 border-slate-700 rounded-md focus:ring-violet-500 focus:border-violet-500" placeholder="Message (max 1000 characters)"></textarea>
+                            </div>
+                            <!-- Honeypot field for bot detection -->
+                            <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                                <input type="text" name="website" tabindex="-1" autocomplete="off">
                             </div>
                             <div>
-                                <button type="submit" class="w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-violet-600 hover:bg-violet-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-violet-500 focus:ring-offset-slate-900">
-                                    Send Message
+                                <button type="submit" class="w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-violet-600 hover:bg-violet-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-violet-500 focus:ring-offset-slate-900 disabled:opacity-50 disabled:cursor-not-allowed">
+                                    <span id="submit-text">Send Message</span>
+                                    <span id="submit-loading" class="hidden">Sending...</span>
                                 </button>
                             </div>
                         </div>
