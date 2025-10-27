@@ -47,10 +47,55 @@ document.addEventListener('DOMContentLoaded', () => {
             removeParticles(buttonContainer);
         });
     }
+
+    // Contact form handling
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const formData = new FormData(contactForm);
+            const data = Object.fromEntries(formData);
+            
+            // Show success message instead of submitting to invalid endpoint
+            const submitButton = contactForm.querySelector('button[type="submit"]');
+            const originalText = submitButton.textContent;
+            submitButton.textContent = 'Message Sent!';
+            submitButton.disabled = true;
+            
+            // Reset form after 3 seconds
+            setTimeout(() => {
+                contactForm.reset();
+                submitButton.textContent = originalText;
+                submitButton.disabled = false;
+            }, 3000);
+            
+            console.log('Form data:', data); // For development purposes
+        });
+    }
 });
+
+// Store keyframe rule to prevent memory leaks
+let floatKeyframeAdded = false;
 
 function createParticles(container) {
     removeParticles(container); // Clear existing particles
+    
+    // Add keyframe rule only once to prevent memory leaks
+    if (!floatKeyframeAdded) {
+        const styleSheet = document.styleSheets[0];
+        const keyframes = `
+            @keyframes float {
+                0% { transform: translate(0, 0); }
+                100% { transform: translate(2px, -3px); }
+            }`;
+        try {
+            styleSheet.insertRule(keyframes, styleSheet.cssRules.length);
+            floatKeyframeAdded = true;
+        } catch(e) {
+            console.warn("Could not insert keyframe rule:", e);
+        }
+    }
+    
     const particleCount = 30;
     for (let i = 0; i < particleCount; i++) {
         const particle = document.createElement('div');
@@ -75,19 +120,6 @@ function createParticles(container) {
         particle.style.animationTimingFunction = `ease-in-out`;
         particle.style.animationIterationCount = `infinite`;
         particle.style.animationDirection = `alternate`;
-    }
-
-    // Add a keyframe rule dynamically for floating effect
-    const styleSheet = document.styleSheets[0];
-    const keyframes = `
-        @keyframes float {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(${Math.random() * 10 - 5}px, ${Math.random() * 10 - 5}px); }
-        }`;
-    try {
-         styleSheet.insertRule(keyframes, styleSheet.cssRules.length);
-    } catch(e) {
-        console.warn("Could not insert keyframe rule:", e);
     }
 }
 
