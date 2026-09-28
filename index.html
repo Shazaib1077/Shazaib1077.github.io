@@ -24,7 +24,7 @@
 <body class="antialiased overflow-x-hidden">
 
     <!-- NAVIGATION -->
-    <nav class="flex justify-between items-center py-6 px-8 max-w-7xl mx-auto">
+    <nav class="flex justify-between items-center py-6 px-4 md:px-8 max-w-7xl mx-auto">
         <!-- Left Side Links -->
         <div class="hidden md:flex gap-6 text-sm font-bold uppercase tracking-wider">
             <a href="#about" class="hover:text-orange-600 transition">About</a>
@@ -36,9 +36,11 @@
         <div class="text-xl font-black tracking-tighter">MA.</div>
         
         <!-- Right Side Buttons -->
-        <div class="flex gap-4 items-center">
-            <a href="./resume.pdf" target="_blank" rel="noopener noreferrer" class="border-2 border-black text-black px-4 py-2 md:px-6 rounded-full font-bold hover:bg-black hover:text-white transition">Resume</a>
-            <a href="mailto:mshazaibali12@gmail.com" class="bg-black text-white px-4 py-2 md:px-6 rounded-full font-bold border-2 border-black hover:border-orange-600 hover:bg-orange-600 transition">Hire Me!</a>
+        <div class="flex gap-2 md:gap-4 items-center">
+            <!-- Updated Resume Link -->
+            <a href="./Muhammad%20Ali_Rutgers_%20Resume_2026.pdf" target="_blank" rel="noopener noreferrer" class="border-2 border-black text-black px-4 py-2 rounded-full text-xs md:text-sm font-bold hover:bg-black hover:text-white transition whitespace-nowrap">Resume</a>
+            
+            <a href="mailto:mshazaibali12@gmail.com" class="bg-black text-white px-4 py-2 rounded-full text-xs md:text-sm font-bold border-2 border-black hover:border-orange-600 hover:bg-orange-600 transition whitespace-nowrap">Hire Me!</a>
         </div>
     </nav>
 
@@ -50,7 +52,7 @@
         </div>
         
         <!-- Central Image -->
-        <div class="relative z-10 w-64 h-64 md:w-96 md:h-96 rounded-full bg-gradient-to-tr from-orange-600 to-red-500 p-2 shadow-2xl mb-8">
+        <div class="relative z-10 w-64 h-64 md:w-96 md:h-96 rounded-full bg-gradient-to-tr from-orange-600 to-red-500 p-2 shadow-2xl mb-8 flex-shrink-0">
             <img src="./IMG_4686.jpg" alt="Muhammad Shazaib Ali" class="w-full h-full object-cover rounded-full" />
             <!-- Floating Badges -->
             <div class="absolute -left-4 md:-left-10 top-1/4 bg-black text-white px-4 py-2 rounded-full text-xs font-bold shadow-lg">Data Engineering</div>
@@ -82,8 +84,9 @@
                 <p class="text-sm font-bold uppercase mt-2">Languages (Python, C, JS, SQL)</p>
             </div>
             
-            <div class="w-48 h-48 rounded-full bg-orange-500 p-1">
-                <img src="./IMG_4686.jpg" alt="About Muhammad" class="w-full h-full object-cover rounded-full" />
+            <!-- FIXED IMAGE CONTAINER: Border instead of padding, and overflow-hidden -->
+            <div class="relative w-48 h-48 rounded-full border-4 border-orange-500 flex-shrink-0 overflow-hidden mx-auto shadow-lg">
+                <img src="./IMG_4686.jpg" alt="Muhammad Shazaib Ali" class="w-full h-full object-cover" />
             </div>
             
             <div class="text-center">
