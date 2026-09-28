@@ -25,33 +25,41 @@
 
     <!-- NAVIGATION -->
     <nav class="flex justify-between items-center py-6 px-8 max-w-7xl mx-auto">
-        <div class="flex gap-6 text-sm font-bold uppercase tracking-wider">
+        <!-- Left Side Links -->
+        <div class="hidden md:flex gap-6 text-sm font-bold uppercase tracking-wider">
             <a href="#about" class="hover:text-orange-600 transition">About</a>
             <a href="#experience" class="hover:text-orange-600 transition">Experience</a>
             <a href="#lifestyle" class="hover:text-orange-600 transition">Lifestyle</a>
         </div>
+        
+        <!-- Center Logo -->
         <div class="text-xl font-black tracking-tighter">MA.</div>
-        <a href="mailto:mshazaibali12@gmail.com" class="bg-black text-white px-6 py-2 rounded-full font-bold hover:bg-orange-600 transition">Hire Me!</a>
+        
+        <!-- Right Side Buttons -->
+        <div class="flex gap-4 items-center">
+            <a href="./resume.pdf" target="_blank" rel="noopener noreferrer" class="border-2 border-black text-black px-4 py-2 md:px-6 rounded-full font-bold hover:bg-black hover:text-white transition">Resume</a>
+            <a href="mailto:mshazaibali12@gmail.com" class="bg-black text-white px-4 py-2 md:px-6 rounded-full font-bold border-2 border-black hover:border-orange-600 hover:bg-orange-600 transition">Hire Me!</a>
+        </div>
     </nav>
 
     <!-- HERO SECTION -->
     <header class="relative flex flex-col items-center justify-center pt-20 pb-32 text-center overflow-hidden">
         <!-- Massive Background Text -->
         <div class="absolute top-10 left-0 w-full overflow-hidden z-0 flex justify-center pointer-events-none">
-            <h1 class="text-[15rem] font-black tracking-tighter leading-none text-outline uppercase select-none">Developer</h1>
+            <h1 class="text-[10rem] md:text-[15rem] font-black tracking-tighter leading-none text-outline uppercase select-none">Developer</h1>
         </div>
         
         <!-- Central Image -->
         <div class="relative z-10 w-64 h-64 md:w-96 md:h-96 rounded-full bg-gradient-to-tr from-orange-600 to-red-500 p-2 shadow-2xl mb-8">
             <img src="./IMG_4686.jpg" alt="Muhammad Shazaib Ali" class="w-full h-full object-cover rounded-full" />
             <!-- Floating Badges -->
-            <div class="absolute -left-10 top-1/4 bg-black text-white px-4 py-2 rounded-full text-xs font-bold shadow-lg">Data Engineering</div>
-            <div class="absolute -right-10 bottom-1/4 bg-black text-white px-4 py-2 rounded-full text-xs font-bold shadow-lg">Software Dev</div>
+            <div class="absolute -left-4 md:-left-10 top-1/4 bg-black text-white px-4 py-2 rounded-full text-xs font-bold shadow-lg">Data Engineering</div>
+            <div class="absolute -right-4 md:-right-10 bottom-1/4 bg-black text-white px-4 py-2 rounded-full text-xs font-bold shadow-lg">Software Dev</div>
         </div>
 
         <div class="relative z-10 max-w-3xl px-6">
             <p class="text-sm font-bold uppercase tracking-widest mb-4">Hi 👋 I'm Muhammad Shazaib Ali</p>
-            <h2 class="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-[0.9]">
+            <h2 class="text-4xl md:text-7xl font-black uppercase tracking-tighter leading-[0.9]">
                 Data Analyst, <br/> Developer <br/> & Operator.
             </h2>
             <div class="mt-8 bg-white text-black p-6 rounded-3xl inline-block shadow-lg max-w-sm text-left">
@@ -64,7 +72,7 @@
     <!-- ABOUT ME SECTION -->
     <section id="about" class="py-24 max-w-6xl mx-auto px-6 text-center">
         <span class="bg-white text-black text-xs font-bold uppercase px-4 py-1 rounded-full mb-6 inline-block">About Me</span>
-        <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tighter leading-tight max-w-4xl mx-auto mb-16">
+        <h2 class="text-3xl md:text-5xl font-black uppercase tracking-tighter leading-tight max-w-4xl mx-auto mb-16">
             Crafting intelligent, data-driven systems & efficient business operations.
         </h2>
         
@@ -75,7 +83,6 @@
             </div>
             
             <div class="w-48 h-48 rounded-full bg-orange-500 p-1">
-                <img src="./" alt="About Muhammad" class="w-full h-full object-cover rounded-full grayscale hover:grayscale-0 transition duration-500" />
                 <img src="./IMG_4686.jpg" alt="About Muhammad" class="w-full h-full object-cover rounded-full" />
             </div>
             
@@ -87,92 +94,92 @@
     </section>
 
     <!-- EXPERIENCE SECTION (Accordion Style) -->
-<section id="experience" class="py-24 max-w-5xl mx-auto px-6 relative">
-    <div class="absolute top-0 left-0 w-full overflow-hidden z-0 flex justify-center pointer-events-none">
-        <h2 class="text-[10rem] font-black tracking-tighter leading-none text-outline-dark uppercase select-none opacity-50">Experience</h2>
-    </div>
+    <section id="experience" class="py-24 max-w-5xl mx-auto px-6 relative">
+        <div class="absolute top-0 left-0 w-full overflow-hidden z-0 flex justify-center pointer-events-none">
+            <h2 class="text-[6rem] md:text-[10rem] font-black tracking-tighter leading-none text-outline-dark uppercase select-none opacity-50">Experience</h2>
+        </div>
 
-    <div class="relative z-10 space-y-4 mt-12">
-        
-        <!-- Photonic Electric -->
-        <details class="group bg-white rounded-3xl cursor-pointer shadow-sm open:bg-orange-50" open>
-            <summary class="flex justify-between items-center p-8 text-2xl md:text-4xl font-black uppercase tracking-tighter">
-                Photonic Electric LLC
-                <span class="text-4xl font-light group-open:rotate-45 transition-transform">+</span>
-            </summary>
-            <div class="px-8 pb-8 text-lg">
-                <p class="font-bold mb-4">Operations Operator · Remote (Jan 2026 - Present)[cite: 3]</p>
-                <ul class="list-disc pl-5 space-y-2 text-base">
-                    <li>Utilize CRM and digital experience platforms, including GoHighLevel, to monitor customer trends, identify process bottlenecks, and improve adoption of digital tools.[cite: 3]</li>
-                    <li>Contribute to continuous improvement initiatives by tracking sales team metrics, streamlining order processing, and resolving complex contract discrepancies.[cite: 3]</li>
-                    <li>Develop customer-centric websites that accurately capture inbound property data and automate estimation reporting.[cite: 3]</li>
-                </ul>
-            </div>
-        </details>
+        <div class="relative z-10 space-y-4 mt-12">
+            
+            <!-- Photonic Electric -->
+            <details class="group bg-white rounded-3xl cursor-pointer shadow-sm open:bg-orange-50" open>
+                <summary class="flex justify-between items-center p-6 md:p-8 text-2xl md:text-4xl font-black uppercase tracking-tighter">
+                    Photonic Electric LLC
+                    <span class="text-4xl font-light group-open:rotate-45 transition-transform">+</span>
+                </summary>
+                <div class="px-6 md:px-8 pb-8 text-lg">
+                    <p class="font-bold mb-4">Operations Operator · Remote (Jan 2026 - Present)</p>
+                    <ul class="list-disc pl-5 space-y-2 text-base">
+                        <li>Utilize CRM and digital experience platforms, including GoHighLevel, to monitor customer trends, identify process bottlenecks, and improve adoption of digital tools.</li>
+                        <li>Contribute to continuous improvement initiatives by tracking sales team metrics, streamlining order processing, and resolving complex contract discrepancies.</li>
+                        <li>Develop customer-centric websites that accurately capture inbound property data and automate estimation reporting.</li>
+                    </ul>
+                </div>
+            </details>
 
-        <!-- Rees Scientific -->
-        <details class="group bg-white rounded-3xl cursor-pointer shadow-sm open:bg-orange-50">
-            <summary class="flex justify-between items-center p-8 text-2xl md:text-4xl font-black uppercase tracking-tighter">
-                Rees Scientific
-                <span class="text-4xl font-light group-open:rotate-45 transition-transform">+</span>
-            </summary>
-            <div class="px-8 pb-8 text-lg">
-                <p class="font-bold mb-4">Data Engineer Intern · Trenton, NJ (Jul 2025 - Dec 2025)[cite: 3]</p>
-                <ul class="list-disc pl-5 space-y-2 text-base">
-                    <li>Optimized SQL/Python data pipelines for 500+ environmental sensors, improving data accessibility, reliability, and monitoring capabilities.[cite: 3]</li>
-                    <li>Collaborated on data modeling to maintain data integrity in calibration records, streamline validation, and support accurate system assessments.[cite: 3]</li>
-                    <li>Developed and maintained Tableau and Power BI dashboards to track operational metrics and system alerts, enabling proactive monitoring and performance optimization.[cite: 3]</li>
-                </ul>
-            </div>
-        </details>
+            <!-- Rees Scientific -->
+            <details class="group bg-white rounded-3xl cursor-pointer shadow-sm open:bg-orange-50">
+                <summary class="flex justify-between items-center p-6 md:p-8 text-2xl md:text-4xl font-black uppercase tracking-tighter">
+                    Rees Scientific
+                    <span class="text-4xl font-light group-open:rotate-45 transition-transform">+</span>
+                </summary>
+                <div class="px-6 md:px-8 pb-8 text-lg">
+                    <p class="font-bold mb-4">Data Engineer Intern · Trenton, NJ (Jul 2025 - Dec 2025)</p>
+                    <ul class="list-disc pl-5 space-y-2 text-base">
+                        <li>Optimized SQL/Python data pipelines for 500+ environmental sensors, improving data accessibility, reliability, and monitoring capabilities.</li>
+                        <li>Collaborated on data modeling to maintain data integrity in calibration records, streamline validation, and support accurate system assessments.</li>
+                        <li>Developed and maintained Tableau and Power BI dashboards to track operational metrics and system alerts, enabling proactive monitoring and performance optimization.</li>
+                    </ul>
+                </div>
+            </details>
 
-        <!-- TechThought.org -->
-        <details class="group bg-white rounded-3xl cursor-pointer shadow-sm open:bg-orange-50">
-            <summary class="flex justify-between items-center p-8 text-2xl md:text-4xl font-black uppercase tracking-tighter">
-                TechThought.org
-                <span class="text-4xl font-light group-open:rotate-45 transition-transform">+</span>
-            </summary>
-            <div class="px-8 pb-8 text-lg">
-                <p class="font-bold mb-4">AI Software and Systems Development · Hampton, NJ (May 2025 - Jul 2025)[cite: 3]</p>
-                <ul class="list-disc pl-5 space-y-2 text-base">
-                    <li>Developed an autonomous content pipeline using Google and X.com APIs, automating data aggregation and publishing workflows.[cite: 3]</li>
-                    <li>Engineered the system to publish 4 daily tech articles, creating a library of more than 400 posts through automated workflows.[cite: 3]</li>
-                    <li>Increased user engagement by 60% across digital platforms through AI-curated content and analytical performance improvements.[cite: 3]</li>
-                    <li>Designed a data integration module to parse and validate information from 50+ verified sources, strengthening data quality and validation controls.[cite: 3]</li>
-                    <li>Leveraged Linux and Ubuntu virtual machine environments to support software development, testing, and system configuration.[cite: 3]</li>
-                </ul>
-            </div>
-        </details>
+            <!-- TechThought.org -->
+            <details class="group bg-white rounded-3xl cursor-pointer shadow-sm open:bg-orange-50">
+                <summary class="flex justify-between items-center p-6 md:p-8 text-2xl md:text-4xl font-black uppercase tracking-tighter">
+                    TechThought.org
+                    <span class="text-4xl font-light group-open:rotate-45 transition-transform">+</span>
+                </summary>
+                <div class="px-6 md:px-8 pb-8 text-lg">
+                    <p class="font-bold mb-4">AI Software and Systems Development · Hampton, NJ (May 2025 - Jul 2025)</p>
+                    <ul class="list-disc pl-5 space-y-2 text-base">
+                        <li>Developed an autonomous content pipeline using Google and X.com APIs, automating data aggregation and publishing workflows.</li>
+                        <li>Engineered the system to publish 4 daily tech articles, creating a library of more than 400 posts through automated workflows.</li>
+                        <li>Increased user engagement by 60% across digital platforms through AI-curated content and analytical performance improvements.</li>
+                        <li>Designed a data integration module to parse and validate information from 50+ verified sources, strengthening data quality and validation controls.</li>
+                        <li>Leveraged Linux and Ubuntu virtual machine environments to support software development, testing, and system configuration.</li>
+                    </ul>
+                </div>
+            </details>
 
-        <!-- Johnson & Johnson -->
-        <details class="group bg-white rounded-3xl cursor-pointer shadow-sm open:bg-orange-50">
-            <summary class="flex justify-between items-center p-8 text-2xl md:text-4xl font-black uppercase tracking-tighter">
-                Johnson & Johnson
-                <span class="text-4xl font-light group-open:rotate-45 transition-transform">+</span>
-            </summary>
-            <div class="px-8 pb-8 text-lg">
-                <p class="font-bold mb-4">Contracting Solution Intern · Raritan, NJ (May 2024 - Aug 2024)[cite: 3]</p>
-                <ul class="list-disc pl-5 space-y-2 text-base">
-                    <li>Streamlined SaaS migration testing through Q-Test script analysis, improving testing efficiency by 55%.[cite: 3]</li>
-                    <li>Achieved 98% accuracy in the MedTech Traceability Matrix, strengthening compliance, documentation quality, and audit readiness.[cite: 3]</li>
-                    <li>Reorganized documentation workflows, reducing retrieval time by 30% and improving team efficiency and information accessibility.[cite: 3]</li>
-                </ul>
-            </div>
-        </details>
+            <!-- Johnson & Johnson -->
+            <details class="group bg-white rounded-3xl cursor-pointer shadow-sm open:bg-orange-50">
+                <summary class="flex justify-between items-center p-6 md:p-8 text-2xl md:text-4xl font-black uppercase tracking-tighter">
+                    Johnson & Johnson
+                    <span class="text-4xl font-light group-open:rotate-45 transition-transform">+</span>
+                </summary>
+                <div class="px-6 md:px-8 pb-8 text-lg">
+                    <p class="font-bold mb-4">Contracting Solution Intern · Raritan, NJ (May 2024 - Aug 2024)</p>
+                    <ul class="list-disc pl-5 space-y-2 text-base">
+                        <li>Streamlined SaaS migration testing through Q-Test script analysis, improving testing efficiency by 55%.</li>
+                        <li>Achieved 98% accuracy in the MedTech Traceability Matrix, strengthening compliance, documentation quality, and audit readiness.</li>
+                        <li>Reorganized documentation workflows, reducing retrieval time by 30% and improving team efficiency and information accessibility.</li>
+                    </ul>
+                </div>
+            </details>
 
-    </div>
-</section>
+        </div>
+    </section>
+
     <!-- LIFESTYLE SECTION (Grid Style) -->
     <section id="lifestyle" class="py-24 max-w-6xl mx-auto px-6">
         <div class="text-center mb-16">
-            <h2 class="text-[5rem] font-black uppercase tracking-tighter leading-none text-outline-dark select-none">Beyond the Code</h2>
+            <h2 class="text-[4rem] md:text-[5rem] font-black uppercase tracking-tighter leading-none text-outline-dark select-none">Beyond the Code</h2>
             <p class="font-bold uppercase tracking-widest mt-4">My Lifestyle & Interests</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <!-- Grid Item 1 -->
             <div class="relative h-96 bg-gray-900 rounded-3xl overflow-hidden group">
-                <!-- Replace with your actual hiking photo -->
                 <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover opacity-60 group-hover:scale-105 transition duration-700" alt="Hiking" />
                 <div class="absolute bottom-6 left-6 flex gap-2">
                     <span class="bg-white text-black px-4 py-2 rounded-full text-xs font-bold uppercase shadow-lg">Hiking & Outdoors</span>
@@ -186,7 +193,6 @@
 
             <!-- Grid Item 2 -->
             <div class="relative h-96 bg-orange-600 rounded-3xl overflow-hidden group">
-                <!-- Replace with your gym photo -->
                 <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover mix-blend-multiply opacity-80 group-hover:scale-105 transition duration-700" alt="Weightlifting" />
                 <div class="absolute bottom-6 left-6 flex gap-2">
                     <span class="bg-white text-black px-4 py-2 rounded-full text-xs font-bold uppercase shadow-lg">Weightlifting</span>
@@ -200,7 +206,6 @@
 
             <!-- Grid Item 3 -->
             <div class="relative h-96 bg-gray-300 rounded-3xl overflow-hidden group md:col-span-2">
-                <!-- Replace with your car photo -->
                 <img src="https://images.unsplash.com/photo-1560958089-b8a1929cea89?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition duration-700" alt="Automotive" />
                 <div class="absolute bottom-6 left-6 flex gap-2">
                     <span class="bg-white text-black px-4 py-2 rounded-full text-xs font-bold uppercase shadow-lg">Automotive Projects</span>
@@ -218,32 +223,31 @@
     <section class="py-24 px-6 max-w-6xl mx-auto">
         <div class="bg-white rounded-[3rem] p-8 md:p-16 flex flex-col md:flex-row gap-12 shadow-xl">
             <!-- Left Image Box -->
-            <div class="w-full md:w-1/2 bg-orange-600 rounded-3xl overflow-hidden min-h-[400px] relative">
-                <!-- You can put a dramatic portrait here -->
-                <img src="./profile.jpg" class="w-full h-full object-cover mix-blend-multiply opacity-80" alt="Contact Portrait" />
+            <div class="w-full md:w-1/2 bg-gray-100 rounded-3xl overflow-hidden min-h-[400px] relative">
+                <img src="./IMG_4686.jpg" class="w-full h-full object-cover" alt="Contact Portrait" />
             </div>
             
             <!-- Right Form Box -->
             <div class="w-full md:w-1/2 flex flex-col justify-center">
                 <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tighter mb-8">Let's Talk</h2>
-                <form class="space-y-6">
-                    <div class="grid grid-cols-2 gap-6">
+                <form class="space-y-6" action="https://formspree.io/f/your_form_id_here" method="POST">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                             <label class="block text-xs font-bold uppercase mb-2">Full Name*</label>
-                            <input type="text" placeholder="Your name here" class="w-full border-b-2 border-gray-300 py-2 bg-transparent focus:outline-none focus:border-black transition" />
+                            <input type="text" name="name" required placeholder="Your name here" class="w-full border-b-2 border-gray-300 py-2 bg-transparent focus:outline-none focus:border-black transition" />
                         </div>
                         <div>
                             <label class="block text-xs font-bold uppercase mb-2">Email*</label>
-                            <input type="email" placeholder="Email Address" class="w-full border-b-2 border-gray-300 py-2 bg-transparent focus:outline-none focus:border-black transition" />
+                            <input type="email" name="email" required placeholder="Email Address" class="w-full border-b-2 border-gray-300 py-2 bg-transparent focus:outline-none focus:border-black transition" />
                         </div>
                     </div>
                     <div>
                         <label class="block text-xs font-bold uppercase mb-2">Subject*</label>
-                        <input type="text" placeholder="Write subject line" class="w-full border-b-2 border-gray-300 py-2 bg-transparent focus:outline-none focus:border-black transition" />
+                        <input type="text" name="subject" required placeholder="Write subject line" class="w-full border-b-2 border-gray-300 py-2 bg-transparent focus:outline-none focus:border-black transition" />
                     </div>
                     <div>
                         <label class="block text-xs font-bold uppercase mb-2">Message*</label>
-                        <textarea rows="3" class="w-full border-b-2 border-gray-300 py-2 bg-transparent focus:outline-none focus:border-black transition"></textarea>
+                        <textarea name="message" required rows="3" class="w-full border-b-2 border-gray-300 py-2 bg-transparent focus:outline-none focus:border-black transition"></textarea>
                     </div>
                     <button type="submit" class="bg-black text-white px-8 py-3 rounded-full font-bold hover:bg-orange-600 transition">Send Message</button>
                 </form>
@@ -252,7 +256,7 @@
     </section>
 
     <!-- FOOTER -->
-    <footer class="py-8 text-center text-sm font-bold uppercase tracking-wider text-gray-500">
+    <footer class="py-8 text-center text-sm font-bold uppercase tracking-wider text-gray-500 px-6">
         <p>&copy; 2026 Muhammad Shazaib Ali. All Right Reserved.</p>
         <p class="mt-2 text-xs normal-case">Customized with a love for clean code and carryout pizza (hold the tomato sauce, add ranch and jalapeños).</p>
     </footer>
