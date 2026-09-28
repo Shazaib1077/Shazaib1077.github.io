@@ -19,6 +19,19 @@
         /* Hide default accordion arrow */
         details > summary { list-style: none; }
         details > summary::-webkit-details-marker { display: none; }
+        
+        /* Floating Logo Animations */
+        @keyframes float-logo {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float-logo {
+            animation: float-logo 4s ease-in-out infinite;
+        }
+        .animate-float-delayed {
+            animation: float-logo 4s ease-in-out 2s infinite;
+        }
     </style>
 </head>
 <body class="antialiased overflow-x-hidden">
@@ -37,9 +50,7 @@
         
         <!-- Right Side Buttons -->
         <div class="flex gap-2 md:gap-4 items-center">
-            <!-- Updated Resume Link -->
             <a href="./Muhammad%20Ali_Rutgers_%20Resume_2026.pdf" target="_blank" rel="noopener noreferrer" class="border-2 border-black text-black px-4 py-2 rounded-full text-xs md:text-sm font-bold hover:bg-black hover:text-white transition whitespace-nowrap">Resume</a>
-            
             <a href="mailto:mshazaibali12@gmail.com" class="bg-black text-white px-4 py-2 rounded-full text-xs md:text-sm font-bold border-2 border-black hover:border-orange-600 hover:bg-orange-600 transition whitespace-nowrap">Hire Me!</a>
         </div>
     </nav>
@@ -68,6 +79,21 @@
                 <p class="font-bold">CS & Data Science at Rutgers University.</p>
                 <p class="text-sm mt-2">Building impactful digital solutions through automation, and scaling operations.</p>
             </div>
+
+            <!-- Floating Logos Section -->
+            <div class="mt-16 flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-70">
+                <!-- Rutgers Logo -->
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Rutgers_University_logo.svg/2560px-Rutgers_University_logo.svg.png" alt="Rutgers" class="h-8 md:h-12 animate-float-logo grayscale hover:grayscale-0 transition duration-300" />
+                
+                <!-- Johnson & Johnson Logo -->
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Johnson_and_Johnson_Logo.svg/2560px-Johnson_and_Johnson_Logo.svg.png" alt="Johnson & Johnson" class="h-5 md:h-8 animate-float-delayed grayscale hover:grayscale-0 transition duration-300" />
+                
+                <!-- Dunkin Logo -->
+                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/b/b8/Dunkin%27_Donuts_logo.svg/2560px-Dunkin%27_Donuts_logo.svg.png" alt="Dunkin" class="h-6 md:h-10 animate-float-logo grayscale hover:grayscale-0 transition duration-300" />
+                
+                <!-- SHPE Logo -->
+                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/e/e0/Society_of_Hispanic_Professional_Engineers_logo.svg/1200px-Society_of_Hispanic_Professional_Engineers_logo.svg.png" alt="SHPE" class="h-10 md:h-16 animate-float-delayed grayscale hover:grayscale-0 transition duration-300" />
+            </div>
         </div>
     </header>
 
@@ -84,7 +110,6 @@
                 <p class="text-sm font-bold uppercase mt-2">Languages (Python, C, JS, SQL)</p>
             </div>
             
-            <!-- FIXED IMAGE CONTAINER: Border instead of padding, and overflow-hidden -->
             <div class="relative w-48 h-48 rounded-full border-4 border-orange-500 flex-shrink-0 overflow-hidden mx-auto shadow-lg">
                 <img src="./IMG_4686.jpg" alt="Muhammad Shazaib Ali" class="w-full h-full object-cover" />
             </div>
